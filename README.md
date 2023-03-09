@@ -9,5 +9,5 @@ In this project we want to create or assimilate the functions that the pokedex h
 ## Pokémon will have a stat, a nickname and 4 attacks :heart_eyes:
 ## The trainer will be able to capture a Pokémon and enter the information of the new Pokémon :speech_balloon:
 ## The trainer can release a Pokémon if he wants :sunglasses:
-:milky_way: :low_brightness: :bomb:
+## :milky_way: :low_brightness: :bomb:
  
