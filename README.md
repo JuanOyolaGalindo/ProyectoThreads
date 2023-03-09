@@ -1,6 +1,6 @@
 # :spades: PokeSockets :diamonds:
 
-##![main](https://static.wikia.nocookie.net/pokemonessentials/images/b/b9/AlmacenamientoPkm.png/revision/latest?cb=20161114031145&path-prefix=es)
+![main](https://static.wikia.nocookie.net/pokemonessentials/images/b/b9/AlmacenamientoPkm.png/revision/latest?cb=20161114031145&path-prefix=es)
 
 ## In this project we want to create or assimilate the functions that the pokedex has, the user will be able to interact dynamically with the Pokedex Interfax.
 ## This pokedex will have the following requirements:
