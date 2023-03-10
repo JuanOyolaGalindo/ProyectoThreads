@@ -71,7 +71,7 @@ public class FramePrincipal extends JFrame{
 		JLabel numcaja = new JLabel("Caja 1");
 		JLayeredPane panelcapas = new JLayeredPane();
 		JPanel panelpokemones = crearMenuPokemones(listener);
-		JPanel panelInfoPokemon = crearMenuMovimientos("", "", "", "");
+		JPanel panelInfoPokemon = crearMenuMovimientos("");
 		panelpokemones.setOpaque(false);
 		atrasbut.setContentAreaFilled(false);	
 		atrasbut.setFocusPainted(false);
@@ -104,14 +104,14 @@ public class FramePrincipal extends JFrame{
 		panelcapas.add(panelInfoPokemon,Integer.valueOf(1));
 		return panelcapas;
 	}
-	int numran=1;
+	int numran;
 	public JPanel crearMenuPokemones(ActionListener listener) {			
 		JPanel panel = new JPanel();
 		Random random = new Random();
 		panel.setLayout(new GridLayout(5, 6));
 		 for (int i = 0; i < 5; i++) {
 	            for (int j = 0; j < 6; j++) {
-	            	setNumran(random.nextInt(50)+1);
+	            	numran = random.nextInt(50)+1;
 	            	ImageIcon pokemon = new ImageIcon("src/co/edu/unbosque/util/images/pkmn/pkmn/"+ numran +".gif");
 	            
 	                JButton boton = new JButton();	              
@@ -129,22 +129,23 @@ public class FramePrincipal extends JFrame{
 	        }
 		 return panel;
 	}
-	public JPanel crearMenuMovimientos(String nom,String niv,String ataq,String def) {
+	public JPanel crearMenuMovimientos(String info) {
 		JLabel tipo,nivel,objeto,movimiento;
-		tipo = new JLabel("Tipo de pokemon: "+nom);
-		nivel = new JLabel("Nivel del pokemon: "+niv);
-		objeto = new JLabel("Ataque: "+ataq);
-		movimiento = new JLabel("Defensa: "+def);
+		tipo = new JLabel("Info:"+info);
+//		nivel = new JLabel("Nivel del pokemon: ");
+//		objeto = new JLabel("Ataque: ");
+//		movimiento = new JLabel("Defensa: ");
+		
 		JPanel panel = new JPanel();
-		tipo.setFont(new Font("Arial", Font.PLAIN, 20));
-		nivel.setFont(new Font("Arial", Font.PLAIN, 20));
-		objeto.setFont(new Font("Arial", Font.PLAIN, 20));
-		movimiento.setFont(new Font("Arial", Font.PLAIN, 20));
+//		tipo.setFont(new Font("Arial", Font.PLAIN, 20));
+//		nivel.setFont(new Font("Arial", Font.PLAIN, 20));
+//		objeto.setFont(new Font("Arial", Font.PLAIN, 20));
+//		movimiento.setFont(new Font("Arial", Font.PLAIN, 20));
 		panel.setLayout(new GridLayout(4,1));
-		panel.add(nivel);
-		panel.add(tipo);
-		panel.add(movimiento);
-		panel.add(objeto);
+//		panel.add(nivel);
+//		panel.add(tipo);
+//		panel.add(movimiento);
+//		panel.add(objeto);
 		return panel;
 		
 	}

@@ -14,7 +14,6 @@ public class Controller implements ActionListener{
 	private FrameCaja2 fc;
 	private FrameCaja3 fct;
 	private SonidoDAO sd;
-	private int n=1;
 	
 	public Controller() {
 		fct = new FrameCaja3(this);
@@ -62,15 +61,15 @@ public class Controller implements ActionListener{
 			
 		}
 	}
-	public void callMethod(String n,String dt1,String dt2,String dt3) {
-		fp.crearMenuMovimientos(n,dt1,dt2,dt3);
+	public void callMethod(String info) {
+		fp.crearMenuMovimientos(info);
 	}
 	
 	public int getN() {
-		return n;
+		return fp.getNumran();
 	}
 
 	public void setN(int n) {
-		this.n = n;
+		n = fp.getNumran();
 	}
 }

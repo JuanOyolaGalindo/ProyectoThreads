@@ -53,12 +53,7 @@ public class Client extends Thread{
     	        this.in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
     	        
                 System.out.println(in.readUTF());
-                String[] lines = in.readUTF().split(" ");
-                for (String s : lines) {
-                	if(s.equals("")) continue;
-					String[] columns = s.split(";");
-					c.callMethod(columns[0], columns[1],columns[2], columns[3]);
-				}
+                c.callMethod(line);
                 this.in.close();
                 this.server.close();
             } 
