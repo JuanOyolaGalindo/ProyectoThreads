@@ -8,7 +8,11 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import co.edu.unbosque.model.PokeDataDAO;
-
+/**
+ * 
+ * @author Grupo
+ *
+ */
 public class AttendCustomer implements Runnable{
 	
 	    private Socket socket; 
@@ -20,7 +24,10 @@ public class AttendCustomer implements Runnable{
 	    private String addressClient;
 	    private PokeDataDAO pdao;
 	    public static int cantHilos = 0;
-	    
+	/**
+	 * Controlador para atander al usuario    
+	 * @param cliente
+	 */
 	public AttendCustomer(Socket cliente) {
 		cantHilos++;
 		socket=cliente;
@@ -33,6 +40,9 @@ public class AttendCustomer implements Runnable{
 	}
 
 	@Override
+	/**
+	 * 
+	 */
 	public void run() {
 		String line = "";
 		try {

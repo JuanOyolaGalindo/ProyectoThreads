@@ -8,7 +8,11 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import co.edu.unbosque.model.PokeDataDAO;
-
+/**
+ * Controllador del servidor
+ * @author Usuario
+ *
+ */
 public class Server extends Thread{
     private Socket socket; 
     private Socket socketR;
@@ -18,7 +22,10 @@ public class Server extends Thread{
     private int	port;
     private String addressClient;
     private PokeDataDAO pdao;
-  
+  /**
+   * constructor del Server
+   * @param port
+   */
     public Server(int port){ 
     	
     	this.socket=null;
@@ -31,6 +38,9 @@ public class Server extends Thread{
     	pdao = new PokeDataDAO();
     }
     @Override
+    /**
+     * Metodo para listar los pokemones
+     */
     public void run(){
 
         String line = ""; 
