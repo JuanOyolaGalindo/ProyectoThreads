@@ -3,9 +3,11 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -17,6 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.border.MatteBorder;
 
 import co.edu.unbosque.controller.Controller;
@@ -58,18 +61,19 @@ public class FramePrincipal extends JFrame{
 	}
 	public JLayeredPane ponerComponentes(ActionListener listener) {
 		ImageIcon imageicon = new ImageIcon("src/co/edu/unbosque/util/images/Caja1.jpg");
-		ImageIcon img = new ImageIcon("src/co/edu/unbosque/util/images/Poliwrath.jpg");
+		ImageIcon img = new ImageIcon("src/co/edu/unbosque/util/images/Entrenador.gif");
 		atrasbut = new JButton();
 		sigbut = new JButton();
 		salirbut = new JButton("Salir");
 		salirbut.setFont(new Font("Arial", Font.PLAIN, 15));
-		JLabel pokemon = new JLabel(img);
+		JLabel entrenador = new JLabel(img);
 		JLabel fondo = new JLabel(imageicon);
 		JLabel numcaja = new JLabel("Caja 1");
 		JLayeredPane panelcapas = new JLayeredPane();
 		JPanel panelpokemones = crearMenuPokemones(listener);
 		JPanel panelInfoPokemon = crearMenuMovimientos();
-		atrasbut.setContentAreaFilled(false);
+		panelpokemones.setOpaque(false);
+		atrasbut.setContentAreaFilled(false);	
 		atrasbut.setFocusPainted(false);
 		atrasbut.setBorderPainted(false);
 		atrasbut.addActionListener(listener);
@@ -84,11 +88,11 @@ public class FramePrincipal extends JFrame{
 		panelInfoPokemon.setBounds(0, 345, 200, 185);
 		numcaja.setBounds(465, 25, 100, 50);
 		fondo.setBounds(200, 0, 600,550);
-		pokemon.setBounds(0, 125, 235, 225);
+		entrenador.setBounds(-10, 125, 235, 225);
 		atrasbut.setBounds(205, 12, 70, 80);
 		sigbut.setBounds(720, 12, 70, 80);
 		panelcapas.add(fondo, Integer.valueOf(0));
-		panelcapas.add(pokemon,Integer.valueOf(0));
+		panelcapas.add(entrenador,Integer.valueOf(0));
 		panelcapas.add(salirbut, Integer.valueOf(1));
 		panelcapas.add(panelpokemones, Integer.valueOf(1));
 		panelcapas.add(atrasbut,Integer.valueOf(1));
@@ -99,12 +103,21 @@ public class FramePrincipal extends JFrame{
 	}
 	public JPanel crearMenuPokemones(ActionListener listener) {			
 		JPanel panel = new JPanel();
+		Random random = new Random();
 		panel.setLayout(new GridLayout(5, 6));
 		 for (int i = 0; i < 5; i++) {
 	            for (int j = 0; j < 6; j++) {
-	                JButton boton = new JButton("Botón " + i + ", " + j);
-	                boton.addActionListener(listener);
+	            	int numran = random.nextInt(50)+1;
+	            	ImageIcon pokemon = new ImageIcon("src/co/edu/unbosque/util/images/pkmn/pkmn/"+ numran +".gif");
+	            
+	                JButton boton = new JButton();	              
+	                boton.setOpaque(false);
+	                boton.setContentAreaFilled(false);
+	                boton.setBorderPainted(false);
 	                boton.setFocusPainted(false);
+	                boton.setIcon(pokemon);
+	                boton.addActionListener(listener);
+	               
 	                pokemones[i][j] = boton;
 	                panel.add(boton);
 	            }
